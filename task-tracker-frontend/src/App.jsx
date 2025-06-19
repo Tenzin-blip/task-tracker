@@ -13,14 +13,16 @@ function App() {
               <div>
                 <div className="max-w-lg md:max-w-none">
                   <h2 className="text-2xl font-semibold text-gray-900 sm:text-3xl">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Task Manager App
                   </h2>
 
                   <p className="mt-4 text-gray-700">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur doloremque saepe
-                    architecto maiores repudiandae amet perferendis repellendus, reprehenderit voluptas
-                    sequi.
+                    The Task Manager App is a lightweight, user-friendly productivity tool designed to help individuals and teams efficiently organize, track, and manage their daily tasks and projects. With a clean interface and intuitive features, users can create to-do lists, set deadlines, assign priorities, categorize tasks, and monitor progress in real-time. The app supports reminders, drag-and-drop task organization, and collaborative features such as task sharing and comment threads, making it ideal for both personal productivity and team collaboration. Whether you're managing a simple checklist or coordinating complex projects, this app streamlines your workflow and keeps you focused on what matters most.
                   </p>
+                  <div className="space-x-4 mt-4">
+                    <Button type="add" onClick={() => alert("Task Added")} />
+                    <Button type="delete" onClick={() => alert("Task Deleted")} />
+                  </div>
                 </div>
               </div>
 
