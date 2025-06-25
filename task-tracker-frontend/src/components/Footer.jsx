@@ -50,105 +50,9 @@ const Footer = () => {
               </form>
             </div>
 
-            <div className="col-span-2 sm:col-span-1">
-              <p className="font-medium text-gray-900">Services</p>
+            
 
-              <ul className="mt-6 space-y-4 text-sm">
-                <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75"> 1on1 Coaching </a>
-                </li>
-
-                <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75"> Company Review </a>
-                </li>
-
-                <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75"> Accounts Review </a>
-                </li>
-
-                <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75"> HR Consulting </a>
-                </li>
-
-                <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75"> SEO Optimisation </a>
-                </li>
-              </ul>
-            </div>
-
-            <div className="col-span-2 sm:col-span-1">
-              <p className="font-medium text-gray-900">Company</p>
-
-              <ul className="mt-6 space-y-4 text-sm">
-                <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75"> About </a>
-                </li>
-
-                <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75"> Meet the Team </a>
-                </li>
-
-                <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75"> Accounts Review </a>
-                </li>
-              </ul>
-            </div>
-
-            <div className="col-span-2 sm:col-span-1">
-              <p className="font-medium text-gray-900">Helpful Links</p>
-
-              <ul className="mt-6 space-y-4 text-sm">
-                <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75"> Contact </a>
-                </li>
-
-                <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75"> FAQs </a>
-                </li>
-
-                <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75"> Live Chat </a>
-                </li>
-              </ul>
-            </div>
-
-            <div className="col-span-2 sm:col-span-1">
-              <p className="font-medium text-gray-900">Legal</p>
-
-              <ul className="mt-6 space-y-4 text-sm">
-                <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75"> Accessibility </a>
-                </li>
-
-                <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75"> Returns Policy </a>
-                </li>
-
-                <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75"> Refund Policy </a>
-                </li>
-
-                <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75">
-                    Hiring-3 Statistics
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div className="col-span-2 sm:col-span-1">
-              <p className="font-medium text-gray-900">Downloads</p>
-
-              <ul className="mt-6 space-y-4 text-sm">
-                <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75"> Marketing Calendar </a>
-                </li>
-
-                <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75"> SEO Infographics </a>
-                </li>
-              </ul>
-            </div>
+            
 
             <ul className="col-span-2 flex justify-start gap-6 lg:col-span-5 lg:justify-end">
               <li>
@@ -249,7 +153,7 @@ const Footer = () => {
 
         <div className="mt-8 border-t border-gray-100 pt-8">
           <div className="sm:flex sm:justify-between">
-            <p className="text-xs text-gray-500">&copy; 2022. Company Name. All rights reserved.</p>
+            <p className="text-xs text-gray-500">&copy; 2025. Tenzin Dolker Sherpa. All rights reserved.</p>
 
             <ul className="mt-8 flex flex-wrap justify-start gap-4 text-xs sm:mt-0 lg:justify-end">
               <li>

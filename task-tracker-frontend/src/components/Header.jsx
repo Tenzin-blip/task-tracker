@@ -30,18 +30,6 @@ const Header = () => {
                 <li>
                   <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> About </a>
                 </li>
-
-                <li>
-                  <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> History </a>
-                </li>
-
-                <li>
-                  <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> Services </a>
-                </li>
-
-                <li>
-                  <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> Blog </a>
-                </li>
               </ul>
             </nav>
 
@@ -72,22 +60,6 @@ const Header = () => {
                       role="menuitem"
                     >
                       My profile
-                    </a>
-
-                    <a
-                      href="#"
-                      className="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
-                      role="menuitem"
-                    >
-                      Billing summary
-                    </a>
-
-                    <a
-                      href="#"
-                      className="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
-                      role="menuitem"
-                    >
-                      Team settings
                     </a>
                   </div>
 
