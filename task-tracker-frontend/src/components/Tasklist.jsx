@@ -1,3 +1,4 @@
+import Button from "./Button";
 const Tasklist = ({ tasks, onDelete, onToggle }) => {
     return (
         <div className="space-y-2">
@@ -11,7 +12,7 @@ const Tasklist = ({ tasks, onDelete, onToggle }) => {
                                 <input
                                     type="checkbox"
                                     checked={task.completed}
-                                    onChange={() => onToggleComplete(task.id)}
+                                    onChange={() => onToggle(task.id)}
                                     className="h-5 w-5 text-blue-600 rounded focus:ring-blue-500"
                                 />
                                 <span
@@ -20,9 +21,9 @@ const Tasklist = ({ tasks, onDelete, onToggle }) => {
                                     {task.text}
                                 </span>
                             </div>
-                            <button
+                            <Button
                                 type='delete'
-                                onClick={() => onDelete(Tasklist.id)}
+                                onClick={() => onDelete(task.id)}
                             />
                         </li>
                     ))}
@@ -31,4 +32,4 @@ const Tasklist = ({ tasks, onDelete, onToggle }) => {
         </div>
     );
 };
-    export default Tasklist;
+export default Tasklist;
