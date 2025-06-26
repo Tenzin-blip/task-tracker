@@ -28,7 +28,13 @@ function App() {
   };
 
   const deleteTask = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id));
+    const task = tasks.find(task => task.id === id);
+    if(task && task.completed){
+      setTasks(tasks.filter((task) => task.id !== id));
+    }else{
+      alert("The task has to be completed before deleting.");
+    }
+
   };
 
   const toggleComplete = (id) => {
