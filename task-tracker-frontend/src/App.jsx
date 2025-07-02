@@ -15,6 +15,19 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    const savedTasks = JSON.parse(localStorage.getItem('tasks'));
+    if (savedTasks) {
+      setTasks(savedTasks);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
+
+  
+
   const addTask = () => {
     if (newTask.trim() !== "") {
       setTasks([...tasks, {
@@ -25,6 +38,7 @@ function App() {
       ]);
       setNewTask("");
     }
+    
   };
 
   const deleteTask = (id) => {
