@@ -3,16 +3,30 @@ import Button from './components/Button';
 import Footer from './components/Footer';
 import Tasklist from './components/Tasklist';
 import { useState, useEffect } from 'react';
+import { fetchTasks } from './api/task';
 
 function App() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
   const [welcomeMessage, setWelcomeMessage] = useState("");
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setWelcomeMessage("Welcome to the Task Tracker Tenzin!");
-    const timer = setTimeout(() => setWelcomeMessage(""), 3000);
-    return () => clearTimeout(timer);
+    const initializeApp = async() => {
+      try{
+        const data = await fetchTasks();
+        setTasks(data);
+        setWelcomeMessage("Welcome to the Task Tracker Tenzin!");
+        const timer = setTimeout(() => setWelcomeMessage(""), 3000);
+        return () => clearTimeout(timer);
+      }catch(err){
+        setError(err.message);
+      }finally{
+        setLoading(false);
+      }
+    }
+    initializeApp();
   }, []);
 
   useEffect(() => {
@@ -56,6 +70,9 @@ function App() {
       task.id === id ? { ...task, completed: !task.completed } : task
     ));
   };
+
+  if(loading) return <div className='text-center text-2xl text-gray-500 p-4'>Loading...</div>;
+  if(error) return <div className='text-center text-2xl text-red-500 p-4'>Error: {error}</div>;
 
   return (
     <div>

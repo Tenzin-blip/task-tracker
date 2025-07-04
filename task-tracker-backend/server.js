@@ -13,18 +13,20 @@ let tasks = [
   { id: 2, text: "Task 2", completed: false },
   { id: 3, text: "Task 3", completed: false },
 ];
-
-// //get all tasks
-// app.get("/", (req, res) => {
-//   //res.json(tasks);
-//   res.send("tasks");
-// });
-
-//get a task by id
+//api call 
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.send("Task Tracker API");
+});
+//health check path to check if the server is running
+app.get("/health", (req, res) => {
+  res.send("Hello Word");
+});
+
+//get all tasks
+app.get("/api/tasks", (req, res) => {
+  res.json(tasks);
 });
 
 app.listen(PORT, () => {
-    console.log(`Server is running on port http://localhost:${PORT}`);
+  console.log(`Server is running on port http://localhost:${PORT}`);
 });
