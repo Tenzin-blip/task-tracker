@@ -35,7 +35,7 @@ app.listen(PORT, () => {
   console.log(`Server is running on port http://localhost:${PORT}`);
 });
 
-app.post('/api/auth/login', (req,res) =>{
+app.post('/api/auth/login', authenticateJWT, (req,res) =>{
   const {email,password} = req.body;
   const user = users.find((u) => u.email === email);
 
@@ -49,3 +49,21 @@ app.post('/api/auth/login', (req,res) =>{
 
   res.json({token,message: 'Login successful'});
 });
+
+const authenticateJWT = (req, res, next) => {
+  const authHeader = req.headers.authorization;
+
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return res.status(401).json({ message: 'Please log in' });
+  }
+
+  const token = authHeader.split(' ')[1];
+
+  try {
+    const user = jwt.verify(token, JWT_SECRET);
+    req.user = user;
+    next();
+  } catch (error) {
+    return res.status(403).json({ message: 'Invalid or expired token' });
+  }
+}
