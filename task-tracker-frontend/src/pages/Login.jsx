@@ -13,9 +13,6 @@ function Login() {
   const [errorMsg, setErrorMsg] = useState("");
   const navigate = useNavigate();
 
-  //google
-  console.log("Google Client ID:", process.env.REACT_APP_GOOGLE_CLIENT_ID);
-
   
   const handleGoogleSuccess = async (credentialResponse) => {
     const token = credentialResponse.credential;
