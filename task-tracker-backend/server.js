@@ -75,6 +75,46 @@ passport.use(
   )
 );
 
+const { OAuth2Client } = require("google-auth-library");
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+
+app.post("/api/auth/google", async (req, res) => {
+  const { token } = req.body;
+
+  try {
+    // Verify token with Google
+    const ticket = await client.verifyIdToken({
+      idToken: token,
+      audience: process.env.GOOGLE_CLIENT_ID,
+    });
+
+    const payload = ticket.getPayload();
+    const email = payload.email;
+    const name = payload.name;
+
+    let user = await User.findOne({ email });
+
+    if (!user) {
+      user = new User({
+        email,
+        password: bcrypt.hashSync("google-auth", 10), // Dummy password
+        googleId: payload.sub,
+      });
+      await user.save();
+    }
+
+    const jwtToken = jwt.sign({ id: user._id, role: user.role }, JWT_SECRET, {
+      expiresIn: "15m",
+    });
+
+    res.json({ token: jwtToken });
+  } catch (err) {
+    console.error("Google token verification failed:", err);
+    res.status(401).json({ message: "Invalid Google token" });
+  }
+});
+
+
 // Routes
 app.get("/health", (req, res) => {
   res.send("Backend is up and running!");
