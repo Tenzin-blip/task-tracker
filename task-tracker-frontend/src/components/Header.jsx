@@ -64,7 +64,7 @@ const Header = () => {
                   </div>
 
                   <div className="p-2">
-                    <form method="POST" action="#">
+                    <form method="POST" action="/login">
                       <button
                         type="submit"
                         className="flex w-full items-center gap-2 rounded-lg px-4 py-2 text-sm text-red-700 hover:bg-red-50"
