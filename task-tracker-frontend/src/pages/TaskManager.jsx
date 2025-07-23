@@ -44,7 +44,10 @@ function TaskManager() {
     if (newTask.trim() === "") return;
   
     try {
+      console.log(newTask);
       const added = await addTaskAPI(newTask);
+      
+
       setTasks([...tasks, added]); 
       setNewTask("");
     } catch (err) {

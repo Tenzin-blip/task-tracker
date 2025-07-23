@@ -21,8 +21,8 @@ function Login() {
     const user = token;
     console.log("Google user:", user);
   
-    // Store token in localStorage
-    localStorage.setItem('token', token);
+    localStorage.removeItem("token");
+    localStorage.setItem("token", token);
   
     // Optionally: send token to your backend for validation or user creation
     try {
@@ -35,7 +35,8 @@ function Login() {
       if (!res.ok) throw new Error('Google auth failed');
       const result = await res.json();
       console.log("Backend auth success:", result);
-  
+      localStorage.removeItem("token");
+      localStorage.setItem("token", result.token);
       // Redirect to TaskManager or set user contex
       navigate('/taskmanager');
     } catch (err) {
@@ -62,6 +63,7 @@ function Login() {
           });
           const data = await response.json();
           if (response.ok && data.token) {
+            localStorage.removeItem("token");
             localStorage.setItem("token", data.token);
             navigate("/taskmanager");
           } else {
@@ -89,6 +91,7 @@ function Login() {
           );
           const data = await response.json();
           if (response.ok && data.token) {
+            localStorage.removeItem("token");
             localStorage.setItem("token", data.token);
             navigate("/dashboard");
           } else {

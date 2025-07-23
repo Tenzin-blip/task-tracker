@@ -126,6 +126,7 @@ app.get("/api/tasks", authenticateJWT, async (req, res) => {
     const tasks = await Task.find({ user: req.user.id });
     res.json(tasks);
   } catch (err) {
+    console.log(err);
     res.status(500).json({ message: "Error fetching tasks" });
   }
 });
@@ -133,12 +134,14 @@ app.get("/api/tasks", authenticateJWT, async (req, res) => {
 app.post("/api/tasks", authenticateJWT, async (req, res) => {
   try {
     const newTask = new Task({
-      text: req.body.text,
+      title: req.body.title, 
+      completed: req.body.completed || false,
       user: req.user.id,
     });
     await newTask.save();
     res.status(201).json(newTask);
   } catch (err) {
+    console.log(err);
     res.status(500).json({ message: "Error creating task" });
   }
 });

@@ -19,7 +19,7 @@ export const addTask = async (text) => {
   const response = await fetch(API_URL, {
     method: 'POST',
     headers: getAuthHeader(),
-    body: JSON.stringify({ text }),
+    body: JSON.stringify({ "title":text }),
   });
   return await response.json();
 };
