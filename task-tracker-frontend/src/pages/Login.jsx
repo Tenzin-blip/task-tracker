@@ -112,10 +112,6 @@ function Login() {
     <GoogleOAuthProvider clientId={clientId} locale="en">
       <div
         className="flex flex-col justify-between min-h-screen bg-center bg-cover"
-        style={{
-          backgroundImage:
-            "url('https://i.pinimg.com/1200x/7c/64/64/7c6464f6711d958c13edfaacde12b775.jpg')",
-        }}
       >
         {/* Page Title */}
         <h1 className="mt-6 text-4xl font-bold text-center text-white">
