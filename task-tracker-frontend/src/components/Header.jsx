@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import '../index.css'
 
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const navigate = useNavigate()
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen)
@@ -25,13 +27,6 @@ const Header = () => {
           </div>
 
           <div className="md:flex md:items-center md:gap-12">
-            <nav aria-label="Global" className="hidden md:block">
-              <ul className="flex items-center gap-6 text-sm">
-                <li>
-                  <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> About </a>
-                </li>
-              </ul>
-            </nav>
 
             <div className="hidden md:relative md:block">
               <button
@@ -64,39 +59,34 @@ const Header = () => {
                   </div>
 
                   <div className="p-2">
-                    <form method="POST" action="/login">
-                      <button
-                        type="submit"
-                        className="flex w-full items-center gap-2 rounded-lg px-4 py-2 text-sm text-red-700 hover:bg-red-50"
-                        role="menuitem"
+                    <button
+                      onClick={() => navigate('/')}
+                      className="flex w-full items-center gap-2 rounded-lg px-4 py-2 text-sm text-red-700 hover:bg-red-50"
+                      role="menuitem"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        className="size-4"
                       >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="1.5"
-                          stroke="currentColor"
-                          className="size-4"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
-                          />
-                        </svg>
-
-                        Logout
-                      </button>
-                    </form>
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
+                        />
+                      </svg>
+                      Logout
+                    </button>
                   </div>
                 </div>
               )}
             </div>
 
             <div className="block md:hidden">
-              <button
-                className="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
-              >
+              <button className="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="size-5"
@@ -116,4 +106,4 @@ const Header = () => {
   )
 }
 
-export default Header;
+export default Header
