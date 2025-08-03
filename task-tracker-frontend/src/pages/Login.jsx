@@ -26,7 +26,7 @@ function Login() {
   
     // Optionally: send token to your backend for validation or user creation
     try {
-      const res = await fetch('http://localhost:5000/api/auth/google', {
+      const res = await fetch('https://task-tracker-4hn8.onrender.com/api/auth/google', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ token }),
@@ -56,7 +56,7 @@ function Login() {
     if (!isRegister) {
       if (email && password) {
         try {
-          const response = await fetch("http://localhost:5000/api/auth/login", {
+          const response = await fetch("https://task-tracker-4hn8.onrender.com/api/auth/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email, password }),
@@ -82,7 +82,7 @@ function Login() {
       if (username && email && password) {
         try {
           const response = await fetch(
-            "http://localhost:5000/api/auth/register",
+            "https://task-tracker-4hn8.onrender.com/api/auth/register",
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },

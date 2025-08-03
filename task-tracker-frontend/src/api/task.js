@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5000/api/tasks';
+const API_URL = 'https://task-tracker-4hn8.onrender.com/api/tasks';
 
 const getAuthHeader = () => {
   const token = localStorage.getItem('token');
@@ -34,7 +34,7 @@ export const deleteTask = async (id) => {
 
 // Google API call to authenticate user by sending Google token to backend
 export const googleLogin = async (googleToken) => {
-  const response = await fetch('http://localhost:5000/api/auth/google', {
+  const response = await fetch('https://task-tracker-4hn8.onrender.com/api/auth/google', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ token: googleToken }),

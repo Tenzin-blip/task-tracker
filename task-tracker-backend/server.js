@@ -97,7 +97,7 @@ app.post("/api/auth/google", async (req, res) => {
     if (!user) {
       user = new User({
         email,
-        password: bcrypt.hashSync("google-auth", 10), // Dummy password
+        password: bcrypt.hashSync("google-auth", 10), 
         googleId: payload.sub,
       });
       await user.save();
@@ -168,7 +168,7 @@ app.post("/api/auth/register", async (req, res) => {
     await newUser.save();
     res.status(201).json({ message: "User registered successfully" });
   } catch (err) {
-    console.error("⚠️  Register error →", err);
+    console.error("Register error →", err);
     res.status(500).json({ message: "Error registering user" });
   }
 });
